@@ -1,0 +1,68 @@
+<div id="feedback">
+    <div class="row">
+        <div class="col s12 m6 l4 offset-m3 offset-l4 page z-depth-2">
+
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="center-align">Feedback</h2>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div id="feedback-form" class="col s12">
+                  <div class="row">
+                      <div class="input-field col s12">
+                         <i class="material-icons prefix">person</i>
+                        <input id="feedback-name" type="text" class="validate" data-length="40">
+                        <label for="feedback-name">Ime</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">email</i>
+                      <input id="feedback-email" type="email" class="validate" data-length="40">
+                      <label for="feedback-email">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                       <i class="material-icons prefix">subject</i>
+                      <input id="feedback-subject" type="text" class="validate" data-length="40">
+                      <label for="feedback-subject">Naslov</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                           <i class="material-icons prefix">message</i>
+                          <textarea id="feedback-text" class="materialize-textarea validate" data-length="200"></textarea>
+                          <label for="feedback-text">Tekst poruke</label>
+                      </div>
+
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12 m12 l4 offset-l8">
+                          <button class="btn btn-effect btn-block" id="feedback-send">Pošalji
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div  class="input-field col s12">
+                          <p id="feedback-error" class="hide red-text center-align"></p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row hide" id="feedback-thanks">
+                <div class="col s12">
+                    <p>Hvala na feedback-u.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+<script src="/js/feedback.js"></script>
+</div>

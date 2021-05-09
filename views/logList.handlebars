@@ -1,0 +1,51 @@
+<main class="container z-depth-2">
+<div id="log-list">
+    <style>
+    td {
+        overflow: auto;
+        max-width: 200px;
+        max-height: 100px;
+    }
+    </style>
+    <div class="row">
+        <div class="col s12">
+
+            <div class="row">
+                <div class="col s12"><h1 class="center-align">{{title}}</h1></div>
+            </div>
+            <div class="row">
+                <div class="col s12">Broj logova: {{count}}</h1></div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>IP</th>
+                              <th>URL</th>
+                              <th>Referer</th>
+                              <th>UserAgent</th>
+                              <th>Datum i vreme</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          {{#each list}}
+                          <tr>
+                            <td>{{ip}}</td>
+                            <td>{{url}}</td>
+                            <td>{{referer}}</td>
+                            <td>{{user-agent}}</td>
+                            <td>{{timestamp}}</td>
+                          </tr>
+                          {{/each}}
+                        </tbody>
+
+                      </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</main>

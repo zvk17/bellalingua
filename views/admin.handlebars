@@ -1,0 +1,412 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<div id="admin">
+    <div class="row">
+        <div class="col s12 m8 l6 offset-m2 offset-l3 page z-depth-2">
+
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="center-align">Admin</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s3"><a href="#insert-language">Dodaj jezik</a></li>
+                        <li class="tab col s3"><a class="active" href="#insert-lesson">Dodaj lekciju</a></li>
+                        <li class="tab col s3"><a class="active" href="#insert-exercise">Dodaj vežbanje</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="insert-language">
+            <div class="row">
+                <div id="insert-language-form" class="col s12">
+                    <div class="row">
+                        <div class="col s12">
+                            <h3 class="center-align">Dodaj jezik</h2>
+                        </div>
+                    </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+
+                        <input id="insert-language-name" type="text" class="validate" data-length="40">
+                        <label for="insert-language-name">Ime jezika</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+
+                      <input id="insert-language-from" type="text" class="validate" data-length="40">
+                      <label for="insert-language-from">Sa Jezika</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="insert-language-image-url" type="text" class="validate" data-length="40">
+                      <label for="insert-language-image-url">URL slika</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+
+                      <input id="insert-language-id" type="text" class="validate" data-length="2">
+                      <label for="insert-language-id">langID</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+
+                          <textarea id="insert-language-description" class="materialize-textarea validate" data-length="200"></textarea>
+                          <label for="insert-language-description">Opis</label>
+                      </div>
+
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12 m12 l4 offset-l8">
+                          <button class="btn waves-effect waves-light btn-block"
+                                  id="insert-language-send">Pošalji</button>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div  class="input-field col s12">
+                          <p id="insert-language-error"
+                             class="hide red-text center-align"></p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+
+
+            <!---->
+            <div id="insert-lesson">
+            <div class="row">
+                <div id="insert-lesson-form" class="col s12">
+                    <div class="row">
+                        <div class="col s12">
+                            <h3 class="center-align">Dodaj lekciju</h2>
+                        </div>
+                    </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                         <!--i class="fa fa-user-circle prefix" aria-hidden="true"></i-->
+                        <input id="insert-lesson-name" type="text" class="validate" data-length="40">
+                        <label for="insert-lesson-name">Ime lekcije</label>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <!--i class="fa fa-info-circle prefix" aria-hidden="true"></i-->
+                      <input id="insert-lesson-type" type="text" class="validate" data-length="40">
+                      <label for="insert-lesson-type">Vrsta lekcije(vokabular, gramatika)</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <select id="insert-lesson-id">
+                          <option value="0" selected>Izaberite jezik</option>
+                          {{#if languages}}
+                            {{#each languages}}
+                                <option value="{{langId}}">{{langName}}</option>
+                            {{/each}}
+                          {{/if}}
+                      </select>
+                      <label for="insert-lesson-id">langID</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                           <!--i class="fa fa-comments prefix"></i-->
+                          <textarea id="insert-lesson-description" class="">Opis</textarea>
+
+                      </div>
+
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12 m12 l4 offset-l8">
+                          <button class="waves-effect waves-light btn  btn-block"
+                                  id="insert-lesson-send">Pošalji</button>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div  class="input-field col s12">
+                          <p id="insert-lesson-error"
+                             class="hide red-text center-align"></p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+
+
+
+
+
+            <!-- -->
+
+            <div id="insert-exercise">
+            <div class="row">
+                <div id="insert-exercise-form" class="col s12">
+                    <div class="row">
+                        <div class="col s12">
+                            <h3 class="center-align">Dodaj vežbanje</h2>
+                        </div>
+                    </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                         <!--i class="fa fa-user-circle prefix" aria-hidden="true"></i-->
+                        <input id="insert-exercise-name" type="text" class="validate" data-length="40">
+                        <label for="insert-exercise-name">Ime vežbanja</label>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <!--i class="fa fa-info-circle prefix" aria-hidden="true"></i-->
+                      <!--input id="insert-exercise-lesson-id" type="text" class="validate"-->
+                      <select id="insert-exercise-lesson-id">
+                          <option value="0" selected>Izaberite lekciju</option>
+                          {{#if lessons}}
+                            {{#each lessons}}
+                                <option value="{{lessonId}}">{{lessonName}}</option>
+                            {{/each}}
+                          {{/if}}
+                      </select>
+                      <label for="insert-exercise-lesson-id">lessonId</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                           <!--i class="fa fa-comments prefix"></i-->
+                          <textarea id="insert-exercise-description" class="materialize-textarea validate" data-length="200"></textarea>
+                          <label for="insert-exercise-description">Opis</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                           <!--i class="fa fa-comments prefix"></i-->
+                          <textarea id="insert-exercise-exercises" class="materialize-textarea validate"></textarea>
+                          <label for="insert-exercise-exercises">Odvojite rečenice prelaskom u sledeći red</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12 m12 l4 offset-l8">
+                          <button class="waves-effect waves-light btn btn-effect btn-block"
+                                  id="insert-exercise-send">Pošalji</button>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div  class="input-field col s12">
+                          <p id="insert-exercise-error"
+                             class="hide red-text center-align"></p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+$(document).ready(()=>{
+    function insertLanguage() {
+        var $insert = $("#insert-language");
+
+        var $insertForm = $insert.find("#insert-language-form"),
+            $insertThanks = $insert.find("#insert-language-thanks"),
+
+            $name = $insertForm.find("#insert-language-name"),
+            $from = $insertForm.find("#insert-language-from"),
+            $url = $insertForm.find("#insert-language-image-url");
+            $desc = $insertForm.find("#insert-language-description"),
+            $error = $insertForm.find("#insert-language-error"),
+            $id = $insertForm.find("#insert-language-id"),
+            $button = $insertForm.find("#insert-language-send");
+
+
+        $button.on("click", e => {
+
+            if ($name.hasClass("valid") && $from.hasClass("valid") &&
+                $url.hasClass("valid") && $desc.hasClass("valid") && $id.hasClass("valid")) {
+
+                var options = {
+
+                    method : "POST",
+                    body: "name=" + encodeURIComponent($name.val()) + "&" +
+                          "from=" + encodeURIComponent($from.val()) + "&" +
+                          "imageUrl=" + encodeURIComponent($url.val()) + "&" +
+                          "desc=" + encodeURIComponent($desc.val())+ "&" +
+                          "langId=" + encodeURIComponent($id.val()),
+                    headers: {
+                        "Content-Type":"application/x-www-form-urlencoded"
+                    },
+                    method: "POST"
+
+                }
+                fetch("/admin/password/lopta123$/insertLanguage", options)
+                    .then(res=>{
+                        if (res.ok) {
+                            return res.json();
+                        }
+                        Materialize.toast('Greška', 4000);
+                        console.error("something went wrong");
+                    })
+                    .then(res=>{
+                        if (res.status === "ok") {
+                            Materialize.toast('Jezik dodat', 4000);
+
+                            //$feedbackForm.addClass("hide");
+                            //$feedbackThanks.removeClass("hide");
+                        }   else {
+                            Materialize.toast(res.error, 4000);
+                            $error.removeClass("hide");
+                        }
+                    }).catch(err=>{
+                        if (err)console.log(err);
+                    })
+            }
+        });
+    }
+
+    function insertLesson() {
+        var $insert = $("#insert-lesson");
+
+        var $insertForm = $insert.find("#insert-lesson-form"),
+            $insertThanks = $insert.find("#insert-lesson-thanks"),
+
+            $name = $insertForm.find("#insert-lesson-name"),
+            $type = $insertForm.find("#insert-lesson-type"),
+            $desc = $insertForm.find("#insert-lesson-description"),
+            $error = $insertForm.find("#insert-lesson-error"),
+            $id = $insertForm.find("#insert-lesson-id"),
+            $button = $insertForm.find("#insert-lesson-send");
+
+        var simplemde = new SimpleMDE({ element: $desc[0] });
+
+
+        $button.on("click", e => {
+
+            if ($name.hasClass("valid") && $type.hasClass("valid")) {
+
+                var options = {
+
+                    method : "POST",
+                    body: "name=" + encodeURIComponent($name.val()) + "&" +
+                          "type=" + encodeURIComponent($type.val()) + "&" +
+                          "desc=" + encodeURIComponent(simplemde.value())+ "&" +
+                          "langId=" + encodeURIComponent($id.val()),
+                    headers: {
+                        "Content-Type":"application/x-www-form-urlencoded"
+                    },
+                    method: "POST"
+
+                }
+                fetch("/admin/password/lopta123$/insertLesson", options)
+                    .then(res=>{
+                        if (res.ok) {
+                            return res.json();
+                        }
+                        Materialize.toast('Greška', 4000);
+                        console.error("something went wrong");
+                    })
+                    .then(res=>{
+                        if (res.status === "ok") {
+                            Materialize.toast('Lekcija dodata', 4000);
+
+                            //$feedbackForm.addClass("hide");
+                            //$feedbackThanks.removeClass("hide");
+                        }   else {
+                            Materialize.toast(res.error, 4000);
+                            $error.removeClass("hide");
+                        }
+                    }).catch(err=>{
+                        if (err)console.log(err);
+                    })
+            }
+        });
+    }
+    function insertExercise(){
+        var $insert = $("#insert-exercise");
+
+        var $insertForm = $insert.find("#insert-exercise-form"),
+            $insertThanks = $insert.find("#insert-exercise-thanks"),
+            $questions = $insert.find("#insert-exercise-exercises")
+            $name = $insertForm.find("#insert-exercise-name"),
+            $desc = $insertForm.find("#insert-exercise-description"),
+            $error = $insertForm.find("#insert-exercise-error"),
+            $id = $insertForm.find("#insert-exercise-lesson-id"),
+            $button = $insertForm.find("#insert-exercise-send");
+
+        $button.on("click", e => {
+
+            if ($name.hasClass("valid") && $questions.hasClass("valid") &&
+                $desc.hasClass("valid")) {
+
+                var questions = $questions.val().split("\n");
+                var nQuest=[];
+                questions.forEach(question=>{
+                    if (!!question && question.length > 2){
+                        nQuest.push(question);
+                    }
+                });
+                questions = nQuest;
+                var options = {
+
+                    method : "POST",
+                    body: "name=" + encodeURIComponent($name.val()) + "&" +
+                          "questions=" + encodeURIComponent(JSON.stringify(questions)) + "&" +
+                          "desc=" + encodeURIComponent($desc.val())+ "&" +
+                          "lessonId=" + encodeURIComponent($id.val()),
+                    headers: {
+                        "Content-Type":"application/x-www-form-urlencoded"
+                    },
+                    method: "POST"
+
+                }
+                fetch("/admin/password/lopta123$/insertExercise", options)
+                    .then(res=>{
+                        if (res.ok) {
+                            return res.json();
+                        }
+                        console.error("something went wrong");
+                        Materialize.toast('Greška', 4000);
+                    })
+                    .then(res=>{
+                        if (res.status === "ok") {
+                            Materialize.toast('Vežbanje dodato', 4000);
+
+                            //$feedbackForm.addClass("hide");
+                            //$feedbackThanks.removeClass("hide");
+                        }   else {
+                            Materialize.toast(res.error, 4000);
+                            $error.removeClass("hide");
+                        }
+                    }).catch(err=>{
+                        if (err)console.log(err);
+                    })
+            }
+        });
+    }
+
+
+
+    insertLanguage();
+    insertLesson();
+    insertExercise();
+    $('ul.tabs').tabs();
+    $('select').material_select();
+
+});
+
+</script>
+</div>
